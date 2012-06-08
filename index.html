@@ -1,0 +1,212 @@
+<html>
+<head>
+<title>jQuery testing</title>
+
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<script type="text/javascript" src="js/jquery-min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("#hide_p").click(function(){
+		$("p").hide(); 
+	}); 
+	
+	$("#show_p").click(function(){
+		$("p").show();
+	});
+	
+	
+	$(".btn-slide").click(function(){		
+		$("#panel").slideToggle("medium")
+		//.animate({opacity: "0.1", left: "+=400"}, 1200)
+		;		
+		
+	});
+	
+	$(".btn-slide").mouseover(function(){	
+		$("#panel").slideToggle("medium"); 	
+		
+	});
+	
+	$(".btn-slide").mouseout(function(){	
+		$("#panel").slideToggle("medium"); 
+		
+	});
+	
+}); 
+
+
+</script>
+
+
+
+</head>
+<body>
+
+<div id="viewport">
+<div id="wrapper">
+
+	<div id="header">
+		<h1>Header</h1>
+		
+		<p>Logo</p>
+		<p>Meny</p>
+		
+	</div>
+	<!-- end: header -->
+	
+	<div id="content">
+		<h2>Content</h2>
+		
+		<p>Artikkel</p>	
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>				
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		
+		
+		<p>Artikkel</p>	
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>				
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+
+
+<p>Artikkel</p>	
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>				
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+
+
+<p>Artikkel</p>	
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>				
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+		
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+		<p>Artikkel</p>
+
+
+		
+	</div>
+	<!-- end: content -->
+	
+	<div id="rightCol">
+		<h2>RightCol</h2>
+		
+		
+		<!-- 
+		<button id="hide_p">Skjul alle avsnitt</button>
+		<button id="show_p">Vis alle avsnitt</button>
+		-->
+		
+		
+		<!-- experimental car ad -->
+		<a href="#" class="btn-slide active"><img src="gfx/car.jpg" alt="Bentley" /></a>
+		<div id="panel">
+			<img src="gfx/interior.jpg" alt="Bentley" width="300" />
+			<!-- <img src="gfx/logo.jpg" alt="Bentley" width="300" /> -->
+			<h1><a href="#">Bestill bil</a></h1>
+		</div>
+		
+		
+		<!-- <p class="slide">
+			<a href="#" class="btn-slide active">Slide Panel</a>
+		</p> -->
+		
+	</div>
+	<!-- end: rightCol -->
+	
+	<div class="clearboth"><!-- no empty divs --></div>
+	
+	
+	<div id="sticky_bottom">Facebook like box. <a href="#" onclick="$('#sticky_bottom').hide()">Close</a></div>
+	
+	
+	<div id="footer">
+		<h2>Footer</h2>
+		
+		<p>Ansvarlig redaktor</p>
+		<p>Kontakt oss</p>
+		<p>Annonser</p>
+		
+		
+		
+		
+	</div>
+	<!-- end: footer -->
+
+</div>
+<!-- end: wrapper -->
+
+</div>
+<!-- end: viewport -->
+</body>
+</html>
