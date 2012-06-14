@@ -3,52 +3,82 @@
 <title>jQuery testing</title>
 
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
+<!-- <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-min.js"></script>
 
 
-<script type="text/javascript">
-$(document).ready(function() {
-	
-	$("#hide_p").click(function(){
-		$("p").hide(); 
-	}); 
-	
-	$("#show_p").click(function(){
-		$("p").show();
-	});
-	
-	
-	$(".btn-slide").click(function(){		
-		$("#panel").slideToggle("medium")
-		//.animate({opacity: "0.1", left: "+=400"}, 1200)
-		;		
-		
-	});
-	
-	$(".btn-slide").mouseover(function(){	
-		$("#panel").slideToggle("medium"); 	
-		
-	});
-	
-	$(".btn-slide").mouseout(function(){	
-		$("#panel").slideToggle("medium"); 
-		
-	});
-	
-}); 
 
-
-</script>
 
 
 
 </head>
 <body>
 
-<!-- a test comment for git hub -->
-<!-- new change from mac - with another revision -->
-<!-- third change  -->
-<!-- fourth change  -->
+
+<script type="text/javascript">
+
+function rotatelist(newitem) {
+	// set fixed height for the duration of the animation, and overflow hidden:
+	// $('#scroller').css('height', $('#scroller').height());
+	$('#scroller').css('overflow', 'hidden');
+	
+	// add a new item, and store its margin-top value for later use:
+	$('#scroller').prepend('<li>' + newitem + '</li>');
+	var oldMarginTop = $('#scroller li:first').css('margin-top');	
+	
+	// move the items up, applying a negative margin to the new element: 
+	$('#scroller li:first').css('margin-top',0 - $('#scroller li:first').outerHeight());
+	
+	// move the new item up, (substring to remove 'px'): 
+	var ulPaddingTop = $('#scroller').css('padding-top');
+	ulPaddingTop = ulPaddingTop.substr(0, ulPaddingTop.length - 2);
+	$('#scroller li:first').css('position', 'relative');
+	$('#scroller li:first').css('top', 0 - ulPaddingTop);
+	
+	// slide the new item down into view: 
+	$('#scroller li:first').animate({top: 0});
+	$('#scroller li:first').animate({marginTop: oldMarginTop});
+	
+	// push the last item down and remove it, (substring to remove 'px'): 
+	var ulPaddingBottom = $('#scroller').css('padding-bottom');
+    ulPaddingBottom = ulPaddingBottom.substr(0, ulPaddingBottom.length - 2);
+	$('#scroller li:last').animate({top: ulPaddingBottom}, 800, function(){
+		// animation complete, 800ms delay function: 
+		$('#scroller li:last').remove();
+		
+		// restore the css back to its original state: 
+		// $('#scroller').css('height', 'auto');
+		$('#scroller').css('overflow', 'visible');
+	});
+	
+}
+
+
+
+$(document).ready(function(){
+	
+	/*
+	setTimeout(rotatelist('<h3>A New Event 1</h3><p>Tid: 16.07.12/p>'), 800);
+	setTimeout(rotatelist('<h3>A New Event 2</h3><p>Tid: 17.07.12/p>'), 800);
+	setTimeout(rotatelist('<h3>A New Event 3</h3><p>Tid: 18.07.12/p>'), 800);
+	*/
+	var rotate = rotatelist('<h3>A New Event 1</h3><p>Tid: 16.07.12/p>'); 
+	setTimeout(rotate, 800);
+	setTimeout(rotate, 800);
+
+	
+	
+	
+
+});
+// end: $(document).ready()
+
+
+
+</script>
+
+
+
 
 
 
@@ -67,21 +97,9 @@ $(document).ready(function() {
 	<div id="content">
 		<h2>Content</h2>
 		
-		<p>Artikkel</p>	
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>				
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-
+		
+		
+		
 		
 		<p>Artikkel</p>
 		<p>Artikkel</p>
@@ -105,40 +123,7 @@ $(document).ready(function() {
 		<p>Artikkel</p>
 		<p>Artikkel</p>
 
-		
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-
-
-
-<p>Artikkel</p>	
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>				
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-
-		
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-		<p>Artikkel</p>
-
-
-
-<p>Artikkel</p>	
+		<p>Artikkel</p>	
 		<p>Artikkel</p>
 		<p>Artikkel</p>
 		<p>Artikkel</p>
@@ -169,24 +154,33 @@ $(document).ready(function() {
 		<h2>RightCol</h2>
 		
 		
-		<!-- 
-		<button id="hide_p">Skjul alle avsnitt</button>
-		<button id="show_p">Vis alle avsnitt</button>
-		-->
+		<ul id="scroller">
+			
+			<li>
+				<h3>Event 1</h3>
+				<p>Tid: 12.07.12</p>
+			</li>
+			<li>
+				<h3>Event 2</h3>
+				<p>Tid: 12.07.12</p>
+			</li>
+			<li>
+				<h3>Event 3</h3>
+				<p>Tid: 13.02.12</p>
+			</li>
+			<li>
+				<h3>Event 4</h3>
+				<p>Tid: 23.12.12</p>
+			</li>
+			<li>
+				<h3>Event 5</h3>
+				<p>Tid: 11.11.12</p>
+			</li>
+		</ul>
 		
 		
-		<!-- experimental car ad -->
-		<a href="#" class="btn-slide active"><img src="gfx/car.jpg" alt="Bentley" /></a>
-		<div id="panel">
-			<img src="gfx/interior.jpg" alt="Bentley" width="300" />
-			<!-- <img src="gfx/logo.jpg" alt="Bentley" width="300" /> -->
-			<h1><a href="#">Bestill bil</a></h1>
-		</div>
-		
-		
-		<!-- <p class="slide">
-			<a href="#" class="btn-slide active">Slide Panel</a>
-		</p> -->
+		<div id="colorblock"><!-- no empty divs --></div>		
+
 		
 	</div>
 	<!-- end: rightCol -->

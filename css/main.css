@@ -16,6 +16,10 @@ h1, h2, h3, h4 { margin: 0 0 10px 0; }
 
 .clearboth {clear: both; }
 
-
+#colorblock { background:#888; width: 100%; height: 300px; }
 div#sticky_bottom { z-index: 500; position: fixed; bottom: 0px; left: 0px; }
 
+
+
+#scroller { height: 400px; list-style: none; padding: 1em; border: 1px solid #9DB029; margin: 1em 0; }
+#scroller li { border: 1px solid #ddd; width: 15em; margin: 0.25em; padding: 0.5em; background-color: #eee; }
